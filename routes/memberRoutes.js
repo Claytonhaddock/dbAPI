@@ -51,7 +51,7 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  console.log(req.body);
+  console.log('body: ', req);
   PersonModel.findByIdAndUpdate(
     req.params.id, 
     req.body, 

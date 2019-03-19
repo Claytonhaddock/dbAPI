@@ -52,9 +52,13 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   PersonModel.findByIdAndUpdate(
-    req.params.id, req.body, { new: true }, (err, task) => {
+    req.params.id, 
+    req.body, 
+    { new: true }, 
+    (err, task) => {
       if (err) return res.status(500).send('Problem edit task.');
-      res.status(200).send(`This task name ${task.name} was edited.`);
+      console.log(task);
+      res.status(200).send(`${task.name} was updated.`);
     }
   );
 });

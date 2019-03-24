@@ -1,6 +1,7 @@
 const express    = require('express');
 const bodyParser = require('body-parser');
 const Models     = require('../controllers/modelsController');
+const ObjectId   = require('mongodb').ObjectID;
 
 const GroupModel  = Models.GroupModel;
 const PersonModel = Models.PersonModel;

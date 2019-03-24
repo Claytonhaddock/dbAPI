@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
           _id: req.body.group
         },
         {
-          $push: { members: groupMember._id }
+          $push: { members: {uid: groupMember._id } }
         },
         { 
           new: true 
@@ -50,12 +50,12 @@ router.delete('/:id/:groupid', (req, res) => {
   //     if (err) return res.status(500).send('Problem deleting task.');
       GroupModel.findOneAndUpdate(
               { 
-                _id: ObjectId(req.params.groupid)
+                _id: req.params.groupid
               },
               {
                 $pull: { 
                   members: {
-                    _id: ObjectId(req.params.id)
+                    uid: req.params.id
                   }
                 }
               }

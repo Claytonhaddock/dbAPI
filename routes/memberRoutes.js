@@ -50,12 +50,12 @@ router.delete('/:id/:groupid', (req, res) => {
   //     if (err) return res.status(500).send('Problem deleting task.');
       GroupModel.findOneAndUpdate(
               { 
-                _id: req.params.groupid
+                _id: ObjectId(req.params.groupid)
               },
               {
                 $pull: { 
                   members: {
-                    _id: req.params.id 
+                    _id: ObjectId(req.params.id)
                   }
                 }
               }

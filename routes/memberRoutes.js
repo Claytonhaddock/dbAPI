@@ -51,7 +51,7 @@ router.delete('/:id/:groupid', (req, res) => {
                 _id: req.params.groupid
               },
               {
-                $pull: {members: { id: ObjectId(req.params.id)}}
+                $pull: {members: { _id: ObjectId(req.params.id)}}
               }
             );
       res.status(200).send(`Task name : ${task.name} was deleted.`);

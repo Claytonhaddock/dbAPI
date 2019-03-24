@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
           _id: req.body.group
         },
         {
-          $push: { members: {uid: groupMember._id } }
+          $push: { members: {personId: groupMember._id } }
         },
         { 
           new: true 
@@ -55,7 +55,7 @@ router.delete('/:id/:groupid', (req, res) => {
               {
                 $pull: { 
                   members: {
-                    uid: req.params.id
+                    personId: req.params.id
                   }
                 }
               }

@@ -51,17 +51,16 @@ router.delete('/:id/:groupid', (req, res) => {
   // PersonModel.findByIdAndRemove(
   //   req.params.id, (err, task) => {
   //     if (err) return res.status(500).send('Problem deleting task.');
-      GroupModel.findOneAndUpdate(
-              { 
-                _id: req.params.groupid
-              },
-              { $push: { scores: 89 } }
-              // {
-              //   $pull: { 
-              //     members: req.params.id
-              //   }
-              // }
-            );
+      // GroupModel.findOneAndUpdate(
+      //         { 
+      //           _id: req.params.groupid
+      //         },
+      //         {
+      //           $pull: { 
+      //             members: req.params.id
+      //           }
+      //         }
+      //       );
       // res.status(200).send(`Task name : ${task.name} was deleted.`);
     // }
   // );

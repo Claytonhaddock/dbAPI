@@ -47,8 +47,7 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/:id/:groupid', (req, res) => {
-  console.log('id: ', req.params.id);
-  console.log('group: ', req.params.groupid);
+  console.log('id: ', req.params);
   // PersonModel.findByIdAndRemove(
   //   req.params.id, (err, task) => {
   //     if (err) return res.status(500).send('Problem deleting task.');

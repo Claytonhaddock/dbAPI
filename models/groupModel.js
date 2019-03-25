@@ -11,8 +11,8 @@ const GroupSchema = new Schema({
       required: true
     },
   date: {
-      type: String,
-      required: true
+      type: String/*,
+      required: true*/
     },
   members: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 });

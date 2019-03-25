@@ -3,16 +3,16 @@ const Schema = mongoose.Schema;
 
 const GroupSchema = new Schema({
   creator: {
-      type: String,
-      required: true
+	type: String,
+	required: true
   },
-  test: {
+  duedate: {
   	type: String,
   	required: true
   },
   name: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   members: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 });

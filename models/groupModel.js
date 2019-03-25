@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const GroupSchema = new Schema({
   creator: String,
   name: String,
-  dueDate: {
+  date: {
       type: String,
       required: true
     },

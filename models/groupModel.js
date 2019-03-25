@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const GroupSchema = new Schema({
   creator: String,
   name: String,
-  dueDate: { type: Date, default: '' },
+  dueDate: String,
   members: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 });
 const GroupModel = mongoose.model('Group', GroupSchema);

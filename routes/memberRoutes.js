@@ -51,7 +51,7 @@ router.delete('/:id/:groupid', (req, res) => {
   // PersonModel.findByIdAndRemove(
   //   req.params.id, (err, task) => {
   //     if (err) return res.status(500).send('Problem deleting task.');
-      GroupModel.findOneAndUpdate(
+      GroupModel.update(
               { 
                 _id: req.params.groupid
               },

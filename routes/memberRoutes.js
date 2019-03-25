@@ -56,7 +56,9 @@ router.delete('/:id/:groupid', (req, res) => {
               },
               {
                 $pull: { 
-                  members: req.params.id 
+                  members: {
+                    _id: req.params.id 
+                  }
                 }
               }
             );

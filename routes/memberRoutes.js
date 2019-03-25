@@ -47,26 +47,24 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/:id/:groupid', (req, res) => {
-  console.log('id: ', req.params);
-  // PersonModel.findByIdAndRemove(
-  //   req.params.id, (err, task) => {
-  //     if (err) return res.status(500).send('Problem deleting task.');
+  PersonModel.findByIdAndRemove(
+    req.params.id, (err, task) => {
+      if (err) return res.status(500).send('Problem deleting task.');
       GroupModel.findOneAndUpdate(
-              { 
-                _id: req.params.groupid
-              },
-              {
-                $pull: { 
-                  members: req.params.id
-                }
-              }, function(err, group) {
-                if(err) return res.status(500).send('Problem: ' + err)
-                  return res.status(200).send('Removed: ' + group)
-              }
-            );
-      // res.status(200).send(`Task name : ${task.name} was deleted.`);
-    // }
-  // );
+        { 
+          _id: req.params.groupid
+        },
+        {
+          $pull: { 
+            members: req.params.id
+          }
+        }, function(err, group) {
+          if(err) return res.status(500).send('Problem: ' + err)
+            return res.status(200).send('Removed: ' + group)
+        }
+      );
+    }
+  );
 });
 
 router.put('/:id', (req, res) => {

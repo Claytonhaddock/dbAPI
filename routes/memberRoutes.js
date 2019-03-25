@@ -62,6 +62,9 @@ router.delete('/:id/:groupid', (req, res) => {
                     _id: req.params.id 
                   }
                 }
+              },
+              { 
+                upstream: true 
               }
             );
       // res.status(200).send(`Task name : ${task.name} was deleted.`);

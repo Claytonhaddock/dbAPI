@@ -6,14 +6,14 @@ const GroupSchema = new Schema({
       type: String,
       required: true
     },
+  test: {
+  	type: String,
+  	required: true
+  }
   name: {
       type: String,
       required: true
-    },
-  date: {
-      type: String/*,
-      required: true*/
-    },
+    }
   members: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 });
 const GroupModel = mongoose.model('Group', GroupSchema);

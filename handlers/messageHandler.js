@@ -17,3 +17,5 @@ function unpaidSort(arr){
 	})
 	return filteredGroups;
 }
+
+module.exports = unpaidSort;

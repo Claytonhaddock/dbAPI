@@ -1,5 +1,5 @@
 function unpaidSort(arr){
-	const filteredGroups = [];
+	const filteredGroups = [1];
 
 	arr.forEach(g => {
 	  const newGroup = {};

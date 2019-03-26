@@ -18,7 +18,7 @@ const GroupSchema = new Schema({
   members: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 });
 
-GroupSchema.post('remove', (doc) => {
+GroupSchema.pre('remove', (doc) => {
 	console.log('removing people: ', doc.members);
     // doc will be the removed Person document
     Person.remove({_id: { $in: doc.members }})

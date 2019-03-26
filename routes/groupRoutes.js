@@ -40,6 +40,7 @@ router.delete('/:id', (req, res) => {
   GroupModel.findByIdAndRemove(
     req.params.id, (err, task) => {
       if (err) return res.status(500).send('Problem deleting task.');
+      task.remove();
       res.status(200).send(`Task name : ${task.name} was deleted.`);
     }
   );

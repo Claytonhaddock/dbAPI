@@ -42,7 +42,7 @@ router.delete('/:id', (req, res) => {
       if (err) return res.status(500).send('Problem deleting group.');
           PersonModel.remove({_id: { $in: group.members }}, (err, res) => {
       })
-      res.status(200).send(`Group was deleted.`);
+      res.status(200).send('Group was deleted.');
     }
   );
 });

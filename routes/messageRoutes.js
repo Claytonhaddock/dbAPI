@@ -1,6 +1,7 @@
-const express    = require('express');
-const bodyParser = require('body-parser');
-const Models     = require('../controllers/modelsController');
+const express        = require('express');
+const bodyParser     = require('body-parser');
+const Models         = require('../controllers/modelsController');
+const messageHandler = require('../handlers/messageHandler');
 
 const GroupModel  = Models.GroupModel;
 const PersonModel = Models.PersonModel;
@@ -17,12 +18,12 @@ router.get('/', (req, res) => {
   GroupModel
     .find(options)
     .populate('members')
-    .exec(function (err, group) {
+    .exec(function (err, groups) {
       if (err) return handleError(err);
-      // const unpaid = group.members.filter(m => {
-      //   return m.completed === false;
-      // })
-      res.status(200).send(group);
+
+      const messaged = messageHandler(groups)
+
+      res.status(200).send(messaged);
     });
 });
 

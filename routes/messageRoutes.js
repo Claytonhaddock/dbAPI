@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
     .populate('members')
     .exec(function (err, group) {
       if (err) return handleError(err);
-      const unpaid = group.members.filter(m => {
-        return m.completed === false;
-      })
-      res.status(200).send(unpaid);
+      // const unpaid = group.members.filter(m => {
+      //   return m.completed === false;
+      // })
+      res.status(200).send(group);
     });
 });
 

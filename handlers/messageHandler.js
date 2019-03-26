@@ -1,5 +1,5 @@
 function unpaidSort(arr){
-	const filteredGroups = [1];
+	const filteredGroups = [1, arr];
 
 	arr.forEach(g => {
 	  const newGroup = {};
@@ -15,7 +15,7 @@ function unpaidSort(arr){
 	  // }
 
 	})
-	return filteredGroups;
+	return ;
 }
 
 module.exports = unpaidSort;

@@ -10,9 +10,9 @@ function unpaidSort(arr){
 	  newGroup.duedate = g.duedate;
 	  newGroup.members = unpaid;
 
-	  if(unpaid.length){
+	  // if(unpaid.length){
 	  	filteredGroups.push();
-	  }
+	  // }
 
 	})
 	return filteredGroups;

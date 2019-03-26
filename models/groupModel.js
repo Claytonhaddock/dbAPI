@@ -19,6 +19,7 @@ const GroupSchema = new Schema({
 });
 
 GroupSchema.pre('remove', (doc) => {
+	console.log('removing people');
     // doc will be the removed Person document
     Person.remove({_id: { $in: doc.members }})
 });

@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   GroupModel.create({
     creator: req.body.creator,
     name: req.body.name,

@@ -68,14 +68,12 @@ router.delete('/:id/:groupid', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  console.log('body: ', req);
   PersonModel.findByIdAndUpdate(
     req.params.id, 
     req.body, 
     { new: true }, 
     (err, task) => {
       if (err) return res.status(500).send('Problem edit task.');
-      console.log(task);
       res.status(200).send(`${task.name} was updated.`);
     }
   );

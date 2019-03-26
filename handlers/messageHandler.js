@@ -23,7 +23,7 @@ function unpaidSort(arr){
 function determineTime(group){
 	const now = Date.now();
 	const due = moment(group.duedate);
-	return a.diff(b, 'days');
+	return now.diff(due, 'days');
 }
 
 module.exports = { unpaidSort, determineTime };

@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
     .exec(function (err, groups) {
       if (err) return handleError(err);
 
-      const messaged = unpaidSort(groups).forEach(determineTime)
+      const messaged = unpaidSort(groups).map(determineTime)
 
       res.status(200).send(messaged);
     });

@@ -28,7 +28,8 @@ router.post('/', (req, res) => {
   GroupModel.create({
     creator: req.body.creator,
     name: req.body.name,
-    duedate: req.body.duedate
+    duedate: req.body.duedate,
+    active: req.body.active
   }, (err, task) => {
     if (err) return res.status(500).send('Problem adding to group data.' + err);
     res.status(200).send(task);

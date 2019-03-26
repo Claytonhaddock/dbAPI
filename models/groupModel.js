@@ -19,7 +19,7 @@ const GroupSchema = new Schema({
 });
 
 GroupSchema.pre('remove', (doc) => {
-	console.log('removing people: ', doc.members);
+	console.log('removing people: ', doc);
     // doc will be the removed Person document
     mongoose.model('Person').remove({_id: { $in: doc.members }})
 });

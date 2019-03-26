@@ -21,7 +21,7 @@ function unpaidSort(arr){
 }
 
 function determineTime(group){
-	const now = Date.now();
+	const now = moment.unix(Date.now());
 	const due = moment(group.duedate);
 	return now.diff(due, 'days');
 }

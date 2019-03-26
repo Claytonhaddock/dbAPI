@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 function unpaidSort(arr){
 	const filteredGroups = [];
 
@@ -18,4 +20,10 @@ function unpaidSort(arr){
 	return filteredGroups;
 }
 
-module.exports = unpaidSort;
+function determineTime(group){
+	const now = Date.now();
+	const due = moment(group.duedate);
+	return a.diff(b, 'days');
+}
+
+module.exports = { unpaidSort, determineTime };

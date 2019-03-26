@@ -40,9 +40,10 @@ router.delete('/:id/:members', (req, res) => {
   GroupModel.findByIdAndRemove(
     req.params.id, (err, group) => {
       if (err) return res.status(500).send('Problem deleting group.');
-          PersonModel.remove({_id: { $in: req.params.members }}, (err, res) => {
-            res.status(200).send(`Group was deleted.`);
+          PersonModel.remove({_id: { $in: group.members }}, (err, res) => {
+            // res.status(200).send(`Group was deleted.`);
       })
+      res.status(200).send(`Group was deleted.`);
     }
   );
 });

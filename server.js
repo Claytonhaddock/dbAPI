@@ -8,7 +8,7 @@ const cors       = require('cors');
 const serverConfig  = require('./config');
 
 const routers = require('./controllers/routesController');
-const { GroupRoutes, PersonRoutes } = routers;
+const { GroupRoutes, PersonRoutes, MessageRoutes } = routers;
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -16,6 +16,7 @@ const app = express();
 app.use(cors())
 app.use('/group', GroupRoutes);
 app.use('/member', PersonRoutes);
+app.use('/message', MessageRoutes);
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(express.static(path.join(__dirname, '../dist/client')));
 

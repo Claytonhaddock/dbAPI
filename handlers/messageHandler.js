@@ -15,7 +15,7 @@ function unpaidSort(arr){
 	  // }
 
 	})
-	return ;
+	return filteredGroups;
 }
 
 module.exports = unpaidSort;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Person   = require('./personModel')
 const Schema = mongoose.Schema;
 
 const GroupSchema = new Schema({
@@ -16,6 +17,14 @@ const GroupSchema = new Schema({
   },
   members: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 });
+
+GroupSchema.post('remove', removeLinkedDocuments);
+
+function removeLinkedDocuments(doc) {
+    // doc will be the removed Person document
+    Person.remove({_id: { $in: doc.members }})
+}
+
 const GroupModel = mongoose.model('Group', GroupSchema);
 
 

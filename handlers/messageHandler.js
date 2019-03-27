@@ -60,7 +60,7 @@ function timeUntilDue(group){
 	return now.diff(due, 'days');
 }
 
-function sendNotifications(grousp) {
+function sendNotifications(group) {
     const client = new Twilio(cfg.twilioAccountSid, cfg.twilioAuthToken);
     grousp.members.forEach(function(group) {
 	    const options = {

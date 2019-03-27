@@ -3,9 +3,6 @@ const bodyParser     = require('body-parser');
 const Models         = require('../controllers/modelsController');
 const messageHandler = require('../handlers/messageHandler');
 
-const unpaidSort    = messageHandler.unpaidSort;
-const determineTime = messageHandler.determineTime;
-
 const GroupModel  = Models.GroupModel;
 const PersonModel = Models.PersonModel;
 
@@ -24,9 +21,9 @@ router.get('/', (req, res) => {
     .exec(function (err, groups) {
       if (err) return handleError(err);
 
-      const messaged = unpaidSort(groups).map(determineTime)
+      messageHandler(groups)
 
-      res.status(200).send(messaged);
+      res.status(200).send(groups);
     });
 });
 

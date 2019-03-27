@@ -85,4 +85,4 @@ function sendNotifications(grousp) {
     });
 }
 
-module.exports = { unpaidSort, timeUntilDue };
+module.exports = handler;

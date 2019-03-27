@@ -61,6 +61,7 @@ function timeUntilDue(group){
 }
 
 function sendNotifications(group) {
+	console.log('send notifications called');
     const client = new Twilio(cfg.twilioAccountSid, cfg.twilioAuthToken);
     grousp.members.forEach(function(group) {
 	    const options = {

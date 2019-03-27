@@ -58,6 +58,8 @@ function unpaidSort(arr){
 function timeUntilDue(group){
 	const now = moment();
 	const due = moment(group.duedate);
+	console.log(now.format('YYYY-MM-DD'))
+	console.log(due.format('YYYY-MM-DD'))
 	console.log('time diff: ', now.diff(due, 'days'));
 	return now.diff(due, 'days');
 }

@@ -68,7 +68,7 @@ function sendNotifications(groups) {
     const client = new Twilio(cfg.twilioAccountSid, cfg.twilioAuthToken);
     groups.members.forEach(function(group) {
 	    const options = {
-	        to: `+ ${group.phone}`,
+	        to: `+1 ${group.phone}`,
 	        from: cfg.twilioPhoneNumber,
 	        body: `Hi ${group.name}. This is an automated reminder that you still need to pay dues for the group: ${groups.name}.`,
 	    };

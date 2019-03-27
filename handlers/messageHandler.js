@@ -23,6 +23,7 @@ function handler(arr){
 }
 
 function checkDayOfMonth(arr, group){
+	console.log('checkDayOfMonth called');
 	const dayOfMonth = moment().date();
 	const text = arr.some(day => {
 		return day === dayOfMonth;

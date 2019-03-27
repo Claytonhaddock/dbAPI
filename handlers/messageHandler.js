@@ -23,7 +23,6 @@ function handler(arr){
 }
 
 function checkDayOfMonth(arr, group){
-	console.log('checkDayOfMonth called');
 	const dayOfMonth = moment().date();
 	const text = arr.some(day => {
 		return day === dayOfMonth;
@@ -64,10 +63,10 @@ function timeUntilDue(group){
 	return now.diff(due, 'days');
 }
 
-function sendNotifications(group) {
+function sendNotifications(groups) {
 	console.log('send notifications called');
     const client = new Twilio(cfg.twilioAccountSid, cfg.twilioAuthToken);
-    grousp.members.forEach(function(group) {
+    groups.members.forEach(function(group) {
 	    const options = {
 	        to: `+ ${group.phone}`,
 	        from: cfg.twilioPhoneNumber,

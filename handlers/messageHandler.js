@@ -57,14 +57,13 @@ function unpaidSort(arr){
 function timeUntilDue(group){
 	const now = moment();
 	const due = moment(group.duedate);
-	console.log(now.format('YYYY-MM-DD'))
-	console.log(due.format('YYYY-MM-DD'))
-	console.log('time diff: ', now.diff(due, 'days'));
+	// console.log(now.format('YYYY-MM-DD'))
+	// console.log(due.format('YYYY-MM-DD'))
+	// console.log('time diff: ', now.diff(due, 'days'));
 	return now.diff(due, 'days');
 }
 
 function sendNotifications(groups) {
-	console.log('send notifications called');
     const client = new Twilio(cfg.twilioAccountSid, cfg.twilioAuthToken);
     groups.members.forEach(function(group) {
 	    const options = {
@@ -79,11 +78,7 @@ function sendNotifications(groups) {
 	            // Just log it for now
 	            console.error(err);
 	        } else {
-	            // Log the last few digits of a phone number
-	            let masked = group.phoneNumber.substr(0,
-	                group.phoneNumber.length - 5);
-	            masked += '*****';
-	            console.log(`Message sent to ${masked}`);
+	            console.log(`Message sent to ${group.name}`);
 	        }
         });
     });
